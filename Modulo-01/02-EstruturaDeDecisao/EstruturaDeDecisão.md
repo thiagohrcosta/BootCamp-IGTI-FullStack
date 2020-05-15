@@ -15,3 +15,14 @@ O **else** no switch fica em caso de uma situação onde não haverá teste, cha
 ## Operador Ternário
 Aqui o comando **if/else** simples pode ser alterado para uma forma mais simples de execução em verdadeiro e falso utilizando **"? :"** .
 
+# Estruturas de repetição
+São comandos de bloco que se repetem, ou seja, são executados mais de uma vez, respeitando uma condição determinada. 
+
+## Comando While
+O comando **while** executa um bloco enquanto a proposição lógica determinada for **true**. Logicamente deve-se inserir em algum momento uma proposição **false** evitando um "*looping infinito*".
+
+## Do while
+É bem semelhante ao exemplo anterior, mas o bloco pelo menos uma vez será executada. O teste é realizado ao final do código.
+## For
+O **for** é muito mais elegante e organizado, possui uma sintaxe melhor, sendo capaz de em apenas uma linha definir todas as condições necessárias para a elaboração da lógica do código. 
+
