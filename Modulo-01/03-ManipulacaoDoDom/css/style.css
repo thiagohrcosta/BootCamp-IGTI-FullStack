@@ -1,0 +1,45 @@
+
+body{
+    padding: 10px;
+    background-color: #dae1e7;
+}
+
+h1{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    color:  blue;
+}
+
+.dados-pessoais{
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#dados{
+    margin-left: 10px;
+}
+
+table, tr, td, th{
+    padding: 5px;
+    border: 1px solid grey;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+th{
+    background-color: #ddd;
+}
+
+.profile-img{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+}
+
+.emphasis{
+    font-weight: bold;
+    color: #142850;
+}
