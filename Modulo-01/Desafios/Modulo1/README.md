@@ -1,4 +1,4 @@
-# Desafio IGTI - Color Select
+# Desafio IGTI - Color Selector
 ![enter image description here](https://github.com/thiagohrcosta/BootCamp-IGTI-FullStack/blob/master/Modulo-01/Desafios/Modulo1/img/colorSelect.png?raw=true)Este repositório armazena o primeiro desafio do **BOOTCAMP DESENVOLVEDOR FULLSTACK** ministrado pelo *INSTITUTO DE GESTÃO E TECNOLOGIA DA INFORMAÇÃO - IGTI*. O objetivo é criar utilizando JavaScript uma página que interage com as escolhas do usuário, indicando ao final, qual o código RGB da cor selecionada. 
 
 ## Comando do desafio
