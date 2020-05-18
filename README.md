@@ -44,3 +44,5 @@
 	* Entrega do Desafio Final.
 
 # Projetos desenvolvidos ao longo do curso
+
+- [Color Selector](https://github.com/thiagohrcosta/BootCamp-IGTI-FullStack/tree/master/Modulo-01/Desafios/Modulo1)
