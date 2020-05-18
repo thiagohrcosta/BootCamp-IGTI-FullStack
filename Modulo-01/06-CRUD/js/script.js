@@ -2,6 +2,8 @@ window.addEventListener("load", start);
 
 var globalNames = ["Um", "Dois", "Três", "Quatro", "Cinco"];
 var inputName = null;
+var isEditing = false;
+var currentIndex = null;
 
 function start(){
     inputName = document.querySelector("#inputName");
@@ -27,11 +29,33 @@ function activateInput(){
 
     function insertName(newName){
         globalNames.push(newName);
+        render();
+    }
+
+    function updateName(newName){
+        globalNames[currentIndex] = newName;
+
+        if(!hasText){
+            return;
+        }
+
     }
     
-    function handleTyping(){
+    function handleTyping(event){
+
+        var hasText = !!event.target.value && event.target.value.trim() !== "";
+
+
         if(event.key === "Enter"){
-            insertName(event.target.value);
+            if(isEditing){
+                updateName(event.target.value);
+            }
+            else{
+                insertName(event.target.value);
+            }
+            render();
+            isEditing = false;
+            clearInput();            
         }
     }
     
@@ -57,6 +81,23 @@ function render(){
         return button;
     }
 
+    function createSpan(nome, index){
+
+        function editItem(){
+            inputName.value = nome;
+            inputName.focus();
+            isEditing = true;
+            currentIndex = index;
+        }
+
+        var span = document.createElement("span");
+        span.classList.add("clickable");
+        span.textContent = nome;
+        span.addEventListener("click", editItem);
+
+        return span;
+    }
+
     var divNames = document.querySelector("#nomes");
     divNames.innerHTML = "";
     
@@ -70,9 +111,7 @@ function render(){
 
         var li = document.createElement("li");
         var button = createDeleteButton(i);
-
-        var span = document.createElement("span");
-        span.textContent = currentName;
+        var span = createSpan(currentName);
 
         li.appendChild(button);
         li.appendChild(span);

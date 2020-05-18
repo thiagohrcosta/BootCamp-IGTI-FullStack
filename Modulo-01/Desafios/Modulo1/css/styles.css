@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+
+body{
+    background-color: #424874;
+
+}
+
+.color-paragraph{
+        font-family: 'Indie Flower', cursive;
+        font-size: 2rem;
+        color: #424874 ;
+        margin: auto;
+
+
+}
+
+.title{
+    margin-top: 50px;
+    text-align: center;
+    color: #f4eeff;
+    font-family: 'Indie Flower', cursive;
+    font-size: 4.5rem;
+}
+
+.range-box{
+    padding: 50px;
+    width: 600px;
+    height: 400px;
+    margin: 50px auto;
+    background-color: #f4eeff;
+    align-items: center;
+    box-shadow: 5px 10px 5px black;
+
+}
+
+.range{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.range-input{
+    margin: 30px auto;
+    background: linear-gradient(90deg, rgb(214,214,214) 60%, rgb(214,214,214) 60%);
+    height: 15px;
+    width: 200px;
+    -webkit-appearance: none;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+    border-radius: 12px;
+    box-shadow:  0px 1px 10px 1px #424874;
+}
+
+.range-input:hover{
+    opacity: 1;
+}
+
+#rangeRed{
+    margin-left: 45px;
+}
+#rangeGreen{
+    margin-left: 85px;
+}
+
+#rangeBlue{
+    margin-left: 100px;
+}
+
+.range-input::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    width: 30px;
+    height: 30px;
+    appearance: none;
+    background: #424874;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+
+.range-input2{
+    font-family: 'Indie Flower', cursive;
+    text-transform: uppercase;
+    font-size: 1.0rem;
+    width: 60x;
+    color: #424874;;
+    float: right;
+}
+
+.slider:after{
+    content: '255';
+    color: white;
+    font-size: 2rem;
+    position: absolute;
+    left: 80%;
+    top: 25%;
+}
+
+.slider:before{
+    content: '0';
+    color: white;
+    font-size: 2rem;
+    position: absolute;
+    left: 12%;
+    top: 25%;
+}
+
+
+.igti:hover{
+    color: #abf0e9;
+    text-decoration: underline;
+}
+
+.rodape{
+    margin: 15px auto;
+    align-items: center;
+    width: 900px;
+    padding-top: 10px;
+    text-align: center;
+    font-size: 1.8rem;
+    color: #f4eeff;
+    font-family: 'Indie Flower', cursive;
+
+}
+
+input{
+    height: 30px;
+    margin: auto;
+}
+
+
+/* NEW BOX */
+
+#newColorBox{
+    margin: 50px auto;
+    height: 120px;
+    width: 510px;
+    background:  rgb(255,255,255);
+    border: 1px solid #424874;
+}
+
+
+.row {
+	flex-direction: row;
+}
+
+.container {
+	margin: 0 auto;
+	display: flex;
+}
+
+
+
+/* NUMBER */
+
+#outputNumberRed{
+    padding: 40px;
+    font-size: 2.5rem;
+}
+
+.inpNumber{
+    text-align: center;
+    
+}
+
+.fab{
+    color: white;
+}
+.fab:hover{
+    color: #abf0e9;
+
+}

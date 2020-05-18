@@ -18,5 +18,7 @@ A ideia de eventos é o "quando", ou seja, quando deve ocorrer, em outras palavr
 - onmouseover = mouse passou sobre o elemento
 - etc
 
+## Evitando envio de dados ao servidor
 
+Quando o evento acontecer, ele é capturado e *evento.preventDefault* evitando seu comportamento padrão e seguindo o que foi determinado pelo código. 
 

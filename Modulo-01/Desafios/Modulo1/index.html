@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="https://kit.fontawesome.com/d45b7ae9b8.js" crossorigin="anonymous"></script>
+
+    <title>COLOR SELECTOR - IGTI</title>
+  </head>
+  <body>
+
+    <div class="title">
+        <h1>COLOR SELECTOR</h1>
+    </div>
+    <form action="">
+      <div class="range-box">
+        <label>
+            <label class="container row">
+              <p class="color-paragraph">(R) Vermelho:</p>
+              <input class="range-input"  id="rangeRed" type="range" value="255" min="0" max="255" />
+              <input class="inpNumber" type="text" id="redInputValue" disabled value="255"> 
+            </label>
+
+            <label class="container row">
+              <p class="color-paragraph">(G) Verde:</p>
+              <input class="range-input" id="rangeGreen" type="range" value="255" min="0" max="255" />
+              <p class="range-input2"><span id="outputNumber"></span></p>  
+              <input class="inpNumber" type="text" id="greenInputValue" disabled value="255"> 
+            </label>
+            
+
+            <label class="container row">
+              <p class="color-paragraph">(B) Azul: </p>
+              <input class="range-input" id="rangeBlue" type="range" value="255" min="0" max="255" />
+              <p class="range-input2"><span id="outputNumber"></span></p>  
+              <input class="inpNumber" type="text" id="blueInputValue" disabled value="255"> 
+
+            </label>
+
+          <div id="newColorBox">
+          
+        </div>
+        </div>
+  
+      
+        </label>
+    </form>
+
+    <footer class="rodape">
+        <p>Projeto desenvolvido durante o BootCamp <span class="igti">Desenvolvimento FullStack</span> produzido pelo
+        <span class="igti">Instituto de Gestão e Tecnologia da Informação - IGTI</span> </p>
+
+        <p>Desenvolvido por <span>Thiago H. R. Costa</span> 2020 - visite meu <a href="https://github.com/thiagohrcosta/snakeGame"><i class="fab fa-github"></i></a>
+    </footer>
+
+
+    <script src="./js/script.js">
+    
+    
+    
+    
+    
+    </script>
+  </body>
+</html>
