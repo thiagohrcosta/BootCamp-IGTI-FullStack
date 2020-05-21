@@ -7,6 +7,9 @@ window.addEventListener('load', () =>{
     doAge();
     doReduce();
     doFind();
+    doSome();
+    //doEvery();
+    doSort();
 
 });
 
@@ -76,4 +79,36 @@ function doFind(){
     })
 
     console.log(found);
+}
+
+
+// Some retornará TRUE ou FALSE
+function doSome(){
+    const trySome = starWars.results.some(person =>{
+        return person.name === "Darth Vader"
+    });
+
+    console.log(trySome);
+}
+
+/*
+function doEvery(){
+    const every = starWars.results.every(person =>{
+        return person.name = "Rocky Balboa"
+    });
+
+    console.log(every);
+
+}
+*/
+
+function doSort(){
+    const mappedNames = starWars.results.map(person => {
+        return {
+            name: person.name
+        };
+    }).filter(person =>{
+        return person.name.startsWith("O");
+    })
+    console.log(mappedNames);
 }
