@@ -41,11 +41,12 @@ async function fetchCountries(){
       id: numericCode,
       name: country.translations.pt,
       population,
+      formattePopulation: formatNumber(population),
       flag,
     };
   });
 
-  
+
   
   render();
 
@@ -65,7 +66,7 @@ function renderCountryList(){
   let countriesHTML = "<div>";
 
   allCountries.forEach(country => {
-    const { name, flag, id, population} = country;
+    const { name, flag, id, population, formattePopulation} = country;
 
     const countryHTML = `
       <div class='country'>
@@ -81,7 +82,7 @@ function renderCountryList(){
         <div>
           <ul>
             <li>${name}</li>
-            <li>${population}</li>
+            <li>${formattePopulation}</li>
           </ul>  
 
         </div>
@@ -99,16 +100,16 @@ function renderCountryList(){
 
 function renderFavorites(){
 
-  let favoritesHTML = "<div>"
+  let favoritesHTML = '<div>';
 
   favoriteCountries.forEach(country => {
-    const { name, flag, id, population } = country;
+    const { name, flag, id, population, formattePopulation } = country;
 
     const favoriteCountryHTML = `
     <div class='country'>
       
       <div>
-          <a id="${id}" class="waves-effect waves-light btn red-darken-4">-</a>
+          <a id="${id}" class="waves-effect waves-light btn red darken-4">-</a>
       </div>
        
       <div>
@@ -118,7 +119,7 @@ function renderFavorites(){
       <div>
         <ul>
           <li>${name}</li>
-          <li>${population}</li>
+          <li>${formattePopulation}</li>
         </ul>  
 
       </div>
@@ -126,9 +127,11 @@ function renderFavorites(){
     </div>    
   `;
 
-  favoritesHTML += '</div>';
+  favoritesHTML += favoriteCountryHTML;
 
   });
+
+  favoritesHTML += '</div>';
 
   tabFavorites.innerHTML = favoritesHTML;
 
@@ -149,9 +152,57 @@ function renderSummary(){
     return accumulator + current.population;
   }, 0);
 
-  totalPopulationList.textContent = totalPopulation;
-  totalPopulationFavorites.textContent = totalFavorites;
+  totalPopulationList.textContent = formatNumber(totalPopulation);
+  totalPopulationFavorites.textContent = formatNumber(totalFavorites);
 
 }
 
-function renderHandleCountryButtons(){}
+function renderHandleCountryButtons(){
+
+  const countryButtons = Array.from(tabCountries.querySelectorAll('.btn'));
+
+  const favoriteButtons = Array.from(tabFavorites.querySelectorAll('.btn'));
+  
+  countryButtons.forEach(button => {
+    button.addEventListener('click', () => addToFavorites(button.id));
+  })
+
+  favoriteButtons.forEach(button =>{
+    button.addEventListener('click', () => removeFromFavorites(button.id));
+  })
+}
+
+function addToFavorites(id){
+
+  const countryToAdd = allCountries.find(country => country.id === id);
+  favoriteCountries = [...favoriteCountries, countryToAdd];
+
+  favoriteCountries.sort((a, b) => {
+    return a.name.localeCompare(b.name);
+  });
+
+  allCountries = allCountries.filter(country => country.id !== id);
+
+
+  render();
+}
+
+function removeFromFavorites(id){
+
+  const countryToRemove = favoriteCountries.find(country => country.id === id);
+  
+  allCountries= [...allCountries, countryToRemove];
+
+  favoriteCountries.sort((a, b) => {
+    return a.name.localeCompare(b.name);
+  });
+
+  favoriteCountries = favoriteCountries.filter(country => country.id !== id);
+
+  render();
+
+}
+
+function formatNumber(number){
+  return numberFormat.format(number);
+}
