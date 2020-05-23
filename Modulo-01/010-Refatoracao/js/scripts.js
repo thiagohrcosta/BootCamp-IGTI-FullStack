@@ -60,12 +60,16 @@ function render(){
 function createDeleteButton(index){
 
     function deleteName(){
-        globalNames = globalNames.filter((name, i) => {
-            if(i === index){
+        //globalNames = globalNames.filter((name, i) => {
+            /*if(i === index){
                 return false;
             }
-            return true;
-        });
+            return true; */
+
+            //return i !== index;
+        //});
+
+        globalNames = globalNames.filter((_, i) => i !== index);
         render();
     }
 
@@ -119,8 +123,13 @@ divNames.appendChild(ul);
 clearInput();
 
 }
-
+/*
 function clearInput(){
 inputName.value = "";
 inputName.focus();
-}
+}*/
+
+const clearInput = () =>{
+    inputName.value = "";
+    inputName.focus();
+};
