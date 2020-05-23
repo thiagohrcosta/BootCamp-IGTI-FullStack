@@ -27,8 +27,72 @@ window.addEventListener("load", () =>{
   numberFormat = Intl.NumberFormat("pt-BR");
 
   fetchCountries();
+
 });
 
-function fetchCountries(){
-  console.log("fetching..")
+async function fetchCountries(){
+  const res = await fetch("https://restcountries.eu/rest/v2/all");
+  const json = await res.json();
+  allCountries = json.map(country =>{
+
+    const { numericCode, translations, population, flag} = country;
+
+    return {
+      id: numericCode,
+      name: country.translations.pt,
+      population,
+      flag,
+    }
+  });
+  
+  render();
+
 }
+
+function render(){
+  
+  renderCountryList();
+  renderFavorites();
+  renderSummary();
+  renderHandleCountryButtons();
+
+}
+
+function renderCountryList(){
+
+  let countriesHTML = "<div>";
+
+  allCountries.forEach(country => {
+    const { name, flag, id, population} = country;
+
+    const countryHTML = `
+      <div class='country'>
+        
+        <div>
+            <a class="waves-effect waves-light btn">+</a>
+        </div>
+         
+        <div>
+        div2
+        </div>
+
+        <div>
+        div3
+        </div>
+
+      </div>    
+    `;
+
+    countriesHTML += countryHTML;
+  });
+
+  tabCountries.innerHTML = countriesHTML;
+
+
+}
+
+function renderFavorites(){}
+
+function renderSummary(){}
+
+function renderHandleCountryButtons(){}
