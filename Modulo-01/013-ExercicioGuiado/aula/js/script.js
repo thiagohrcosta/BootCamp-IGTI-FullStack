@@ -42,8 +42,10 @@ async function fetchCountries(){
       name: country.translations.pt,
       population,
       flag,
-    }
+    };
   });
+
+  
   
   render();
 
@@ -69,15 +71,19 @@ function renderCountryList(){
       <div class='country'>
         
         <div>
-            <a class="waves-effect waves-light btn">+</a>
+            <a id="${id}" class="waves-effect waves-light btn">+</a>
         </div>
          
         <div>
-        div2
+          <img src="${flag}" alt="${name}">
         </div>
 
         <div>
-        div3
+          <ul>
+            <li>${name}</li>
+            <li>${population}</li>
+          </ul>  
+
         </div>
 
       </div>    
@@ -86,13 +92,66 @@ function renderCountryList(){
     countriesHTML += countryHTML;
   });
 
-  tabCountries.innerHTML = countriesHTML;
+  countriesHTML += '</div>';
 
+  tabCountries.innerHTML = countriesHTML;
+}
+
+function renderFavorites(){
+
+  let favoritesHTML = "<div>"
+
+  favoriteCountries.forEach(country => {
+    const { name, flag, id, population } = country;
+
+    const favoriteCountryHTML = `
+    <div class='country'>
+      
+      <div>
+          <a id="${id}" class="waves-effect waves-light btn red-darken-4">-</a>
+      </div>
+       
+      <div>
+        <img src="${flag}" alt="${name}">
+      </div>
+
+      <div>
+        <ul>
+          <li>${name}</li>
+          <li>${population}</li>
+        </ul>  
+
+      </div>
+
+    </div>    
+  `;
+
+  favoritesHTML += '</div>';
+
+  });
+
+  tabFavorites.innerHTML = favoritesHTML;
 
 }
 
-function renderFavorites(){}
+function renderSummary(){
 
-function renderSummary(){}
+  countCountries.textContent = allCountries.length;
+  countFavorites.textContent = favoriteCountries.length;
+
+  const totalPopulation = allCountries.reduce((accumulator, current) =>{
+    return accumulator + current.population;
+  }, 0);
+
+  totalPopulationList.textContent = totalPopulation;
+
+  const totalFavorites = favoriteCountries.reduce((accumulator, current) =>{
+    return accumulator + current.population;
+  }, 0);
+
+  totalPopulationList.textContent = totalPopulation;
+  totalPopulationFavorites.textContent = totalFavorites;
+
+}
 
 function renderHandleCountryButtons(){}
