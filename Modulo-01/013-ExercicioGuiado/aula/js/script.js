@@ -13,3 +13,22 @@ let totalPopulationFavorites = 0;
 
 let numberFormat = null;
 
+window.addEventListener("load", () =>{
+
+  tabCountries = document.querySelector("#tabCountries")
+  tabFavorites = document.querySelector("#tabFavorites")
+  countCountries = document.querySelector("#countCountries")
+  countFavorites = document.querySelector("#countFavorites")
+
+  totalPopulationList = document.querySelector("#totalPopulationList");
+  totalPopulationFavorites = document.querySelector("#totalPopulationFavorites")
+
+
+  numberFormat = Intl.NumberFormat("pt-BR");
+
+  fetchCountries();
+});
+
+function fetchCountries(){
+  console.log("fetching..")
+}

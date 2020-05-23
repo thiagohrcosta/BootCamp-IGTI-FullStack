@@ -4,6 +4,7 @@
   "description": "Iniciando live-server",
   "main": "index.js",
   "dependencies": {
+    "intl": "^1.2.5",
     "live-server": "^1.2.1"
   },
   "devDependencies": {},
