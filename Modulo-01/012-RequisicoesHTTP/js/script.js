@@ -32,8 +32,6 @@ function executedDivisionPromise(a, b){
 function executedDivisionPromisesAsyncAwait(){
     const division = await executedDivisionPromise(12,2);
     console.log(division);
-
- 
-
-
 }
+
+
