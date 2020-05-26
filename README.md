@@ -46,3 +46,4 @@
 # Projetos desenvolvidos ao longo do curso
 
 - [Color Selector](https://github.com/thiagohrcosta/BootCamp-IGTI-FullStack/tree/master/Modulo-01/Desafios/Modulo1)
+- [Pesquisa de Usuário](https://github.com/thiagohrcosta/BootCamp-IGTI-FullStack/tree/master/Modulo-01/Desafios/DesafioFinal)
