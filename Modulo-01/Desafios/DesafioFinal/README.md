@@ -59,9 +59,9 @@ Os alunos deverão desempenhar as seguintes atividades:
   
 
 Tela inicial da aplicação (sugestão):
-![enter image description here](https://igti.instructure.com/courses/2934/files/189355/preview)
+![eimg1'](https://github.com/thiagohrcosta/BootCamp-IGTI-FullStack/blob/master/Modulo-01/Desafios/DesafioFinal/img/img1.png?raw=true)
 
-![enter image description here](https://igti.instructure.com/courses/2934/files/189356/preview)
+![enter image description here](https://github.com/thiagohrcosta/BootCamp-IGTI-FullStack/blob/master/Modulo-01/Desafios/DesafioFinal/img/img2.png?raw=true)
 
 **Dicas**
 
