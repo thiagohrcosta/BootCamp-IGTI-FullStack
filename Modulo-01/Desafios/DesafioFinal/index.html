@@ -16,7 +16,37 @@
     <title>Desafio - Módulo 1</title>
 </head>
 
-      
+<body>
+    <div id="loading">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-green-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="container" class="container preload">
+        <div class="row-title">
+            <h1>Pesquisa de usuário</h1>
+        </div>
+        <br />
+        <div class="row">
+            <input type="text" id="nome" />
+            <a id="enviar" class="waves-effect waves-light btn">Buscar</a>
+        </div>
+        <div class="row">
+            <div class="column" id="usuario"></div>
+            <div class="column" id="estatisticas"></div>
+        </div>
+    </div>
+    
         <footer class="rodape">
             <p>Projeto desenvolvido durante o BootCamp <span class="igti">Desenvolvimento FullStack</span> produzido pelo
             <span class="igti">Instituto de Gestão e Tecnologia da Informação - IGTI</span> </p>

@@ -1,77 +1,147 @@
-let tabPeople = null;
-let tabPeopleFind = null;
+'use strict';
 
-let allPeople = [];
+const url = "https://randomuser.me/api/?seed=javascript&results=100&nat=BR&noinfo";
 
+let listaPessoas = [];
+let btnEnviar = null;
+let txtNome = null;
+let caixaUsuario = null;
+let caixaEstatistica = null;
+let numberFormat = Intl.NumberFormat('pt-BR');
 
-window.addEventListener("load", ()=>{
+const start = () =>{
+    carregarLista();    
 
-    tabPeopleFind = document.querySelector("#tabPeopleFind");
+    carregaElementos();
+    
+    btnEnviar.classList.add("disabled");
+    
+    btnEnviar.addEventListener('click', buscarNome);
 
+    initNome();
+}
 
-});
+window.addEventListener('load', start);
 
-async function fetchPeople(){
-    const res = await fetch("https://randomuser.me/api/?seed=javascript&results=100&nat=BR&noinfo");
-    const json = await res.json();
-    allPeople = json.map(people =>{
-        const{
-            id,
-            name, 
-            picture, 
-            age, 
-            gender
-        } = people;
+const carregaElementos = () =>{
+    btnEnviar = document.querySelector("#enviar");    
+    txtNome = document.querySelector("#nome");
+    caixaUsuario = document.querySelector("#usuario");
+    caixaEstatistica = document.querySelector("#estatisticas");
+}
 
-        return{
-            id: username,
-            name: name.firstName + "" + name.surName,
-            picture,
-            age: dob.age,
-            gender
+const carregarLista = async ()=>{
+    const res = await fetch(url);
+
+    const pessoas = await res.json();
+    
+    listaPessoas = pessoas.results.map(pessoa=>{
+        const {name, dob, picture, gender} = pessoa;        
+        return {
+            nome: name.first+" "+name.last,
+            idade: dob.age,
+            img: picture.thumbnail,
+            sexo: gender ==='female' ? "F" : "M",
+        }
+    });
+
+    ativarTela();
+}
+
+const ativarTela = () =>{
+    setTimeout(()=>{
+        document.querySelector("body").removeChild(document.querySelector("#loading"));
+        document.querySelector("#container").classList.remove("preload");
+    }, 3000);    
+}
+
+const initNome = () =>{
+    const onKeyUpNome = (event) =>{
+        let hasText = !!event.target.value && event.target.value.trim() !== '';
+
+        if(hasText){
+            btnEnviar.classList.remove("disabled");            
+        }else{
+            btnEnviar.classList.add("disabled");
+            limparCaixas();
         }
 
+        if(hasText && event.key == 'Enter'){
+            buscarNome();
+        }
+    }
+
+    txtNome.addEventListener('keyup', onKeyUpNome);
+    limparCaixas();
+}
+
+const limparCaixas = () =>{
+    caixaUsuario.innerHTML = "<strong>Nenhum usuário filtrado</strong>";
+    caixaEstatistica.innerHTML = "<strong>Nada a ser exibido</strong>";
+}
+
+const buscarNome = () =>{
+    var nome = txtNome.value.toLowerCase();
+
+    let filtro = listaPessoas.filter(p=>{
+        return p.nome.toLowerCase().includes(nome);
     });
-    
-    console.log(people);
-    render();
+
+    carregaUsuarios(filtro);
+
+    carregarEstatisticas(filtro);
 }
 
-function render(){
-    renderPeopleList();
-
-}
-
-function renderPeopleList(){
+const carregaUsuarios = (filtro) =>{
     
-    let peopleHTML = "<div>";
+    var div = "";
 
-    allPeople.forEach(people => {
-        const {name, picture, age, gender} = people;
-        
-        const peopleHTML = `
-            <div> class="people">
-            
-            <div>
-                <a id="${id} class="waves-effect waves-light btn>+</a>
-            </div>
-
-            <div>
-                <img src="${picture}">
-            </div>
-
-            <div>
-                <ul>
-                    <li>${name}</li>
-                    <li>${age}</li>
-                </ul>
-            </div>
+    if(filtro.length === 1){
+        div = "<strong>1 usuário encontrado</strong>";
+    }else{
+        div = `<strong>${filtro.length} usuários encontrados</strong>`;
+    }        
+    
+    filtro.forEach(p=>{
+        div += 
+        `
+        <div class="row-text">
+            <div><img src="${p.img}" alt="${p.nome}" class="thumbnail"></div>
+            <div class="text">${p.nome}, ${p.idade} anos</div>
+        </div>
         `;
+    });    
 
-        peopleHTML =+ "</div>";
+    caixaUsuario.innerHTML = div;
+}
 
-        tabPeopleFind.innerHTML = peopleHTML;
+const carregarEstatisticas = (filtro) =>{
+    var div = "<strong>Estatísticas</strong>";
 
+    var masculino = filtro.filter(p=>{return p.sexo === 'M'}).length;
+    
+    var feminino = filtro.filter(p=>{return p.sexo === 'F'}).length;
 
-    });
+    var idades = filtro.reduce((accumulator, current)=>{
+        return accumulator+current.idade;
+    }, 0);
+
+    var media = numberFormat.format((idades / filtro.length).toFixed(2));
+
+    div += `
+        <div class="row-text">
+            <div class="text">Sexo masculino: <strong>${masculino}</strong></div>
+        </div>
+        <div class="row-text">
+            <div class="text">Sexo feminino: <strong>${feminino}</strong></div>
+        </div>
+        <div class="row-text">
+            <div class="text">Soma das idades: <strong>${idades}</strong></div>
+        </div>
+        <div class="row-text">
+            <div class="text">Média das idades: <strong>${media}</strong></div>
+        </div>
+    `;
+
+    caixaEstatistica.innerHTML = div;
 }
