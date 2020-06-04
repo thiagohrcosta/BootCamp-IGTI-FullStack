@@ -1,1 +1,9 @@
-{"name":"Paula","balance":200}
+{
+    "accounts": [
+        {
+            "id": 1,
+            "name": "Thiago",
+            "balance": 100
+        }
+    ]
+}
