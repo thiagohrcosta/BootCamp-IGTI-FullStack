@@ -1,9 +1,1 @@
-{
-    "accounts": [
-        {
-            "id": 1,
-            "name": "Thiago",
-            "balance": 100
-        }
-    ]
-}
+{"nextId":1,"accounts":[]}
