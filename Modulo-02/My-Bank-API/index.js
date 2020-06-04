@@ -17,7 +17,7 @@ app.post("/account", (req, res) => {
 
                 fs.writeFile("accounts.json", JSON.stringify(json), err => {
                     if(err){
-                        console.log(err);
+                        res.status(400).send({ error: err.message });
                     }
                     else{
                         res.end();
@@ -25,7 +25,7 @@ app.post("/account", (req, res) => {
                  });
             }
             catch(err){
-                res.status(400).send({ errpr: err.message });
+                res.status(400).send({ error: err.message });
             }            
         }
         else{
@@ -45,14 +45,16 @@ app.listen(3333, function(){
                     accounts: []
                };
                fs.writeFile("accounts.json", JSON.stringify(initialJson), err => {
-                   console.log(err);
-               });
+                if(err){
+                    console.log(err);
+                }
+            });
            }
         });
 
     }
     catch (err){
-        console.log(err);
+        res.status(400).send({ error: err.message });
     }
     console.log("API Started");
 });
