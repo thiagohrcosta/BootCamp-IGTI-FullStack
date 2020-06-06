@@ -35,6 +35,21 @@ app.post("/account", (req, res) => {
     });
 });
 
+app.get("/account", (req, res) => {
+    fs.readFile("accounts.json", "utf8", (err, data) => {
+
+        if(!err){
+            let json = JSON.parse(data);
+            delete json.nextId;
+            res.send(json);
+        } else {
+            console.log("Erro")
+        }
+
+    });
+});
+
+
 app.listen(3333, function(){
 
     try{
