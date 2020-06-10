@@ -1,0 +1,16 @@
+{
+  "name": "brasileirao-api",
+  "version": "1.0.0",
+  "description": "Projeto apresentado ao BootCamp IGTI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Thiago H R Costa",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node": "^14.4.0",
+    "nodemon": "^2.0.4"
+  }
+}
