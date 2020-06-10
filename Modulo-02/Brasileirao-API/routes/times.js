@@ -1,12 +1,11 @@
 import express from "express";
 import {promises} from "fs";
-import { get } from "http";
 
 const readFile = promises.readFile;
 
 const router = express.Router();
 
-router-get("/campeao", async (req, res) => {
+router.get("/campeao", async (req, res) => {
     let campeao = await retornaCampeao();
     res.send(campeao);
 });
