@@ -1,4 +1,5 @@
 import React, { Component} from 'react';
+import Countries from './components/countries/Countries';
 
 export default class App extends Component {
   
@@ -36,6 +37,8 @@ export default class App extends Component {
     return (
       <div className="container">
         <h1>React Contries</h1>
+
+        <Countries countries={allCountries} />        
       </div>
     );    
   }
