@@ -32,7 +32,7 @@ export default class App extends Component {
 
     this.setState({
       allCountries,
-      filteredCountries: allCountries,
+      filteredCountries: Object.assign([], allCountries),
     });
   }
 
@@ -43,8 +43,9 @@ export default class App extends Component {
 
     const filterLowerCase = newText.toLowerCase();
 
-    const filteredCountries = this.state.allCountries.filter(country => {
-      country.filterName.includes(filterLowerCase());
+
+    const filteredCountries = this.state.allCountries.filter((country) => {
+      return country.filterName.includes(filterLowerCase);
     });
     this.setState({
       filteredCountries,
@@ -52,13 +53,13 @@ export default class App extends Component {
   };
 
   render(){
-    const { allCountries, filter } = this.state;
+    const { filteredCountries, filter } = this.state;
 
     return (
       <div className="container">
         <h1>React Contries</h1>
         <Header filter={filter} onChangeFilter={this.handleChangeFilter} />
-        <Countries countries={allCountries} />        
+        <Countries countries={filteredCountries} />        
       </div>
     );    
   }
