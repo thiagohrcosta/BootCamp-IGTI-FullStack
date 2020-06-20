@@ -24,6 +24,7 @@ export default class App extends Component {
       return {
         id: numericCode,
         name,
+        filterName: name.toLowerCase(),
         flag,
         population
       };
@@ -38,6 +39,15 @@ export default class App extends Component {
   handleChangeFilter = (newText) =>{
     this.setState({
       filter: newText,
+    });
+
+    const filterLowerCase = newText.toLowerCase();
+
+    const filteredCountries = this.state.allCountries.filter(country => {
+      country.filterName.includes(filterLowerCase());
+    });
+    this.setState({
+      filteredCountries,
     });
   };
 
