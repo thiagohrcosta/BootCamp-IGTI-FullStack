@@ -8,7 +8,10 @@ export default class App extends Component {
     super();
     
     this.state = {
-    allCountries: [],
+      allCountries: [],
+      filteredCountries: [],
+      filter: '',
+
   };
 }
 
@@ -28,17 +31,23 @@ export default class App extends Component {
 
     this.setState({
       allCountries,
+      filteredCountries: allCountries,
     });
   }
-  render(){
-    const { allCountries } = this.state;
 
-    console.log(allCountries);
-    
+  handleChangeFilter = (newText) =>{
+    this.setState({
+      filter: newText,
+    });
+  };
+
+  render(){
+    const { allCountries, filter } = this.state;
+
     return (
       <div className="container">
         <h1>React Contries</h1>
-        <Header />
+        <Header filter={filter} onChangeFilter={this.handleChangeFilter} />
         <Countries countries={allCountries} />        
       </div>
     );    
