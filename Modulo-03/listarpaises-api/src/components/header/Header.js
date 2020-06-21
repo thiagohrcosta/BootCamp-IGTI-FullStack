@@ -15,6 +15,7 @@ export default class Header extends Component {
     return (
       <div className={css.flexRow}>
         <input 
+          placeholder="Pesquisar"
           type="text" 
           value={filter} 
           onChange={this.handleInputChange} /> |
