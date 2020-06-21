@@ -6,7 +6,13 @@ export default class Country extends Component {
 
     const { country } = this.props;
 
-    return <div className={`${css.country} ${css.border}`}>{country.name}</div>;
+    const { name, flag } = country;
+
+    return <div 
+              className={`${css.country} ${css.border}`}>
+                <img className={css.flag} src={flag} alt={name} />
+                <span className={css.countryName}>{name}</span>
+          </div>;
    
   }
 }
