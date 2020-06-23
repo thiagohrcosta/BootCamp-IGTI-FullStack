@@ -31,7 +31,7 @@ export default class App extends Component {
     return (
       <div className="container" >
       <div className="row">
-        <h1 className="center-align indigo-text text-darken-3">Salary Calculator Tabajara</h1>
+        <h1 className="center-align indigo-text text-darken-3">Calculador de Salário</h1>
       </div>
 
       <div className="row">
