@@ -1,13 +1,17 @@
 import React from 'react'
+import Card from './Card';
+import Candidate from './Candidate';
 
 export default function Candidates({candidates}) {
   return (
     <div>
-         {candidates.map(({id, name, votes})=>{
+         {candidates.map(candidate => {
+           const {id} = candidate;
+
           return (
-            <p key={id}>
-              {name} - {votes}
-            </p>
+            <Card key={id}>
+              <Candidate candidate={candidate}/>
+            </Card>
           );
         })}      
     </div>
