@@ -21,7 +21,7 @@ export default function Candidate({candidate, position}) {
       <Picture imageSource={imageSource} description={name}/>
       <Info>
         <Name>{name}</Name>
-        <Votes>{formatNumber(votes)}</Votes>
+        <Votes value={votes} />
         <Percentage>{formatPercentage(percentage)}</Percentage>
         <Popularity value={popularity} />
       </Info>

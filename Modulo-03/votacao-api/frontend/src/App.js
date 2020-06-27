@@ -16,12 +16,14 @@ export default class App extends Component {
 
   componentDidMount() {
     this.interval = setInterval(() => {
-      fetch("http://localhost:8080/votes").then((res) => {
-        return res.json().then((json) => {
+      fetch("http://localhost:8080/votes")
+      .then((res) => {
+        return res.json()
+        })
+        .then((json) => {              
           this.setState({
             candidates: json.candidates,
           });
-        });
       });
     }, 1000);
   }

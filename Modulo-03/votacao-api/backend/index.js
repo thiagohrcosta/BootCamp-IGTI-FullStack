@@ -60,6 +60,7 @@ function fillCandidates() {
       id: 1,
       name: 'Marco Minnemann',
       votes: 0,
+      voteCount: 0,
       previousVotes: 0,
       percentage: 0,
       popularity: CONSTS.MIN_POPULARITY,
@@ -69,6 +70,7 @@ function fillCandidates() {
       id: 2,
       name: 'Mike Portnoy',
       votes: 0,
+      voteCount: 0,
       previousVotes: 0,
       percentage: 0,
       popularity: CONSTS.MIN_POPULARITY,
@@ -78,6 +80,7 @@ function fillCandidates() {
       id: 3,
       name: 'Neil Peart',
       votes: 0,
+      voteCount: 0,
       previousVotes: 0,
       percentage: 0,
       popularity: CONSTS.MIN_POPULARITY,
@@ -96,8 +99,8 @@ function simulateVoting() {
 
       const votes = generateRandomNumber(minVotes, maxVotes);
 
-      candidate.previousVotes = candidate.votes;
       candidate.votes += votes;
+      candidate.previousVotes = candidate.votes;
     });
   }, CONSTS.INTERVAL_VOTES);
 }
