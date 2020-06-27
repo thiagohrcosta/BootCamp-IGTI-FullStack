@@ -6,7 +6,7 @@ import Name from './Name';
 import Percentage from './Percentage';
 import Votes from './Votes';
 import Popularity from './Popularity';
-import {formatNumber} from '../helpers/FormatHelpers';
+import {formatNumber, formatPercentage} from '../helpers/FormatHelpers';
 
 import css from './candidate.module.css';
 
@@ -22,7 +22,7 @@ export default function Candidate({candidate, position}) {
       <Info>
         <Name>{name}</Name>
         <Votes>{formatNumber(votes)}</Votes>
-        <Percentage>{percentage}</Percentage>
+        <Percentage>{formatPercentage(percentage)}</Percentage>
         <Popularity value={popularity} />
       </Info>
     </div>
