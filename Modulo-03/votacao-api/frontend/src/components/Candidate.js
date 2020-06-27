@@ -6,6 +6,7 @@ import Name from './Name';
 import Percentage from './Percentage';
 import Votes from './Votes';
 import Popularity from './Popularity';
+import {formatNumber} from '../helpers/FormatHelpers';
 
 import css from './candidate.module.css';
 
@@ -20,7 +21,7 @@ export default function Candidate({candidate, position}) {
       <Picture imageSource={imageSource} description={name}/>
       <Info>
         <Name>{name}</Name>
-        <Votes>{votes}</Votes>
+        <Votes>{formatNumber(votes)}</Votes>
         <Percentage>{percentage}</Percentage>
         <Popularity value={popularity} />
       </Info>
