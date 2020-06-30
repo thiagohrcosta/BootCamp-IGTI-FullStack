@@ -29,11 +29,13 @@ client.connect(async (err) => {
   const dataBaseList = await client.db().admin().listDatabases();
   console.log(dataBaseList);
 
-  /*
-  dataBaseList.array.forEach(db => {
+  console.log("DataBases:")
+
+
+  dataBaseList.databases.forEach((db) => {
     console.log(` - ${db.name}`)
   })
-  */
+  
 
   client.close();
 });
