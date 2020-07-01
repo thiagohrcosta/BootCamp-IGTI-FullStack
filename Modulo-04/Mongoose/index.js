@@ -7,5 +7,39 @@ await mongoose.connect("mongodb+srv://Thiago:bancodedadosigti@movieapi.z0kfu.mon
   useUnifiedTopology: true
 });
 
+// Criando modelo
+const movieSchema = mongoose.Schema({
+  title: {
+    type: String,
+    require: true
+  },
+  rating: {
+    type: Double,
+    require: true
+  },
+  gender: {
+    type: String,
+    require: true
+  },
+  year: {
+    type: Number,
+    require: true
+  },
+  trailer: {
+    type: String,
+  },
+  coverBox: {
+    type: String,
+    require: true
+  },
+  mainActor: {
+    type: String,
+    require: true
+  },
+  supportActor: {
+    type: String
+  }
+});
 
-
+//definindo modelo da coleção
+mongoose.model("moviedb", movieSchema);
