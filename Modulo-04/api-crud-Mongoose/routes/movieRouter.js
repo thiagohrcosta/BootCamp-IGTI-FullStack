@@ -1,11 +1,9 @@
-import express from 'express';
+const express = require("express");
+const routes = express();
 
-const app = express();
-
-export {app};
-
-app.get('/movie',async (req, res) => {
-  res.send("Teste");
+routes.get('/movie',async (req, res) => {
+  res.send({result: "Validado!!!"});
 });
 
+module.exports = routes;
 
