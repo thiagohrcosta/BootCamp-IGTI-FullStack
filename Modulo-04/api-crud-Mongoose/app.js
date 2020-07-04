@@ -1,10 +1,17 @@
 //import express from 'express';
 const express = require("express");
+const mongoose = require("mongoose");
 
 //import {movieRouter} from "./routes/movieRouter.js";
 const routes = require("./routes/movieRouter.js");
 
 //const movieRouter = require("./routes/movieRouter")
+
+// Conectando ao MongoDB pelo Mongoose
+mongoose.connect("mongodb+srv://Thiago:bancodedadosigti@movieapi.z0kfu.mongodb.net/moviedb?retryWrites=true&w=majority", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 const app = express();
 

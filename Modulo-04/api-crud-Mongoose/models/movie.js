@@ -1,11 +1,5 @@
 const mongoose = require('mongoose');
 
-// Conectando ao MongoDB pelo Mongoose
-mongoose.connect("mongodb+srv://Thiago:bancodedadosigti@movieapi.z0kfu.mongodb.net/moviedb?retryWrites=true&w=majority", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
-
 // Criando modelo
 const movieSchema = mongoose.Schema({
   title: {
@@ -47,7 +41,7 @@ const movieSchema = mongoose.Schema({
 });
 
 //definindo modelo da coleção
-const movieModel = mongoose.model("movie", movieSchema, "movie");
+const movieModel = mongoose.model("movies", movieSchema, "movies");
 
 module.exports = movieModel;
 //const movie = mongoose.model("movie");
