@@ -4,22 +4,22 @@ const mongoose = require('mongoose');
 const movieSchema = mongoose.Schema({
   title: {
     type: String,
-    require: true
+    required: true
   },
   rating: {
     type: Number,
-    require: true,
+    required: true,
     validade(value){
       if(value < 0 && value > 10) throw new Error("Value must be between 0 and 10.")
     }
   },
   gender: {
     type: String,
-    require: true
+    required: true
   },
   year: {
     type: Number,
-    require: true,
+    required: true,
     validade(value){
       if(value <= 1900 && value >= 2030) throw new Error("Year must be between 1900 and 2030")
     }    
@@ -29,11 +29,11 @@ const movieSchema = mongoose.Schema({
   },
   coverBox: {
     type: String,
-    require: true
+    required: true
   },
   mainActor: {
     type: String,
-    require: true
+    required: true
   },
   supportActor: {
     type: String
