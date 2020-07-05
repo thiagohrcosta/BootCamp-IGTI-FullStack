@@ -1,0 +1,39 @@
+.imgCarousel{
+  width: 100%;
+  max-height: 600px;
+}
+
+.backgroundImg{
+  background-image: url("https://images8.alphacoders.com/796/thumb-1920-796344.jpg");
+  background-size: cover;
+  background-repeat: no-repeat, repeat;
+  background-position: center; 
+  min-height: 700px;
+}
+
+.buttonCarousel{
+  padding: 5px;
+  border-radius: 5px;
+  width: 250px;
+
+}
+
+.contentBox{
+  background-color: RGBA(0,0,0,0.61);
+  margin-top: -285px;
+  padding: 20px;
+  background-color: RGBA(0,0,0,0.61);
+
+}
+.titleMain{
+  color: white;
+}
+
+.supportTitle{
+  color: white;
+  font-size: 18px;
+}
+
+.fas{
+  margin-right: 10px;
+}
