@@ -6,6 +6,7 @@ export default class SearchBar extends Component {
     return (
       <div className="container">
         <div className={css.searchPosition}>
+          <br className="space"/>
           <br/>
           <input className={css.inputField} type="text" placeholder="Search a movie to watch"></input>        
 
