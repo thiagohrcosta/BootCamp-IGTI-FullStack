@@ -1,0 +1,14 @@
+.boxCover{
+  text-align: center;
+  align-items: center;
+  background-color: red;
+  color: blue;
+  
+}
+
+.boxImg{
+  max-width: 280px;
+  min-width: 180px;
+  max-height: 400px;
+  min-height: 300px;
+}
