@@ -50,3 +50,6 @@
 - [Dados de Cidades](https://github.com/thiagohrcosta/BootCamp-IGTI-FullStack/tree/master/Modulo-02/Trabalho-Pratico1)
 - [My-Bank-API](https://github.com/thiagohrcosta/BootCamp-IGTI-FullStack/tree/master/Modulo-02/My-Bank-API)
 - [Brasileirao-API](https://github.com/thiagohrcosta/BootCamp-IGTI-FullStack/tree/master/Modulo-02/Brasileirao-API)
+
+# Certificado
+![Certificado](https://github.com/thiagohrcosta/BootCamp-IGTI-FullStack/blob/master/Certificado/certificadoIGTI.png?raw=true)
